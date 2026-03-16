@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEP Meeting Survival Checklist - IEPs & WTFs</title>
+    <style>
+        @media print {
+            @page {
+                margin: 0.5in;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #ffffff;
+            padding: 40px 20px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #2563eb;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .header .subtitle {
+            font-size: 18px;
+            color: #475569;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header .byline {
+            font-size: 14px;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .intro {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 35px;
+            border-left: 4px solid #2563eb;
+        }
+
+        .intro p {
+            font-size: 15px;
+            color: #334155;
+            line-height: 1.7;
+        }
+
+        .section {
+            margin-bottom: 35px;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .checklist-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding: 10px;
+            background: #ffffff;
+            border-radius: 4px;
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #94a3b8;
+            border-radius: 3px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .item-text {
+            font-size: 15px;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .item-text strong {
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .subsection {
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+
+        .subsection-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 12px;
+            padding-left: 15px;
+            border-left: 3px solid #93c5fd;
+        }
+
+        .tip-box {
+            background: #fef3c7;
+            border: 1px solid #fbbf24;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .tip-box strong {
+            color: #92400e;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .tip-box p {
+            color: #78350f;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .notes-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .notes-section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .notes-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .notes-line {
+            border-bottom: 1px solid #cbd5e1;
+            height: 20px;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 2px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .footer .book-title {
+            font-weight: 700;
+            color: #2563eb;
+            font-size: 16px;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: #1d4ed8;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .print-button {
+                position: static;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button no-print" onclick="window.print()">📄 Print or Save as PDF</button>
+
+    <div class="header">
+        <h1>IEP Meeting Survival Checklist</h1>
+        <p class="subtitle">Your Complete Guide to IEP Meeting Preparation</p>
+        <p class="byline">From "IEPs & WTFs: A Parent's Survival Guide to Special Education" by Marjorie Stevens</p>
+    </div>
+
+    <div class="intro">
+        <p><strong>Welcome!</strong> This checklist is designed to help you prepare for, participate in, and follow up after your child's IEP meeting. Print this out, bring it with you, and use it as your roadmap to effective advocacy. Remember: you are an equal member of the IEP team, and your voice matters.</p>
+    </div>
+
+    <!-- BEFORE THE MEETING -->
+    <div class="section">
+        <h2 class="section-title">
+            <span class="section-number">1</span>
+            Before the Meeting
+        </h2>
+
+        <div class="subsection">
+            <h3 class="subsection-title">Review & Organize Documents</h3>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Review your child's <strong>current IEP</strong> and note what's working and what isn't</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Read all <strong>evaluation reports</strong> and assessments thoroughly</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Review <strong>progress reports</strong> and report cards from this school year</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Organize any <strong>outside evaluations or medical documentation</strong> you want to share</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Gather <strong>work samples</strong> that show your child's strengths and challenges</div>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">Prepare Your Observations & Concerns</h3>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Write down <strong>specific examples</strong> of your child's progress and struggles</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Document any <strong>behavioral or emotional concerns</strong> you've observed</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Note your child's <strong>strengths and interests</strong> to build on</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">List any <strong>accommodations or services</strong> you want to request or discuss</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Prepare questions about anything in the reports you don't understand</div>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">Logistics & Support</h3>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Confirm the <strong>meeting date, time, and location</strong></div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Ask who will be attending the meeting and their roles</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Consider bringing a <strong>support person</strong> (spouse, advocate, friend) to take notes</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Request an <strong>interpreter</strong> if needed (language or sign language)</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Bring this checklist, paper/pen, and all relevant documents in an organized folder</div>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <strong>💡 Pro Tip:</strong>
+            <p>Send your concerns and questions to the team in writing 3-5 days before the meeting. This gives everyone time to prepare thoughtful responses and shows you're an engaged, organized parent.</p>
+        </div>
+    </div>
+
+    <!-- DURING THE MEETING -->
+    <div class="section">
+        <h2 class="section-title">
+            <span class="section-number">2</span>
+            During the Meeting
+        </h2>
+
+        <div class="subsection">
+            <h3 class="subsection-title">Understand What's Being Discussed</h3>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text"><strong>Ask for clarification</strong> if you don't understand terminology or acronyms</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Request explanations of <strong>test scores and what they mean</strong> in practical terms</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Ask "What does this look like in the classroom?" for any abstract concepts</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Take notes or have someone take notes for you</div>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">Essential Questions to Ask</h3>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">"How will we measure progress toward these goals?" (Be specific about data collection)</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">"What does this accommodation/service look like in practice?"</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">"How often will this service be provided, and by whom?"</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">"What happens if my child isn't making adequate progress?"</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">"How will you communicate progress to me throughout the year?"</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">"What support/training will teachers receive to implement these accommodations?"</div>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">Advocate Effectively</h3>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Share your <strong>observations from home</strong> - you see things teachers don't</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Be specific when requesting services ("I'd like speech therapy 2x/week for 30 minutes")</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">If you disagree, <strong>say so respectfully</strong> and explain why</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Don't feel pressured to sign anything you're not comfortable with</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <div class="item-text">Request a break if you feel overwhelmed or need time to think</div>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <strong>🛡️ Remember Your Rights:</strong>
+            <p>You have the right to disagree with the IEP, request additional evaluations, bring an advocate, record the meeting (check state laws), and request another meeting. You are an equal member of this team.</p>
+        </div>
+    </div>
+
+    <!-- KEY COMPONENTS TO DISCUSS -->
+    <div class="section">
+        <h2 class="section-title">
+            <span class="section-number">3</span>
+            Key IEP Components to Review
+        </h2>
+
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text"><strong>Present Levels (PLAAFP):</strong> Does this accurately describe your child's current abilities and needs?</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text"><strong>Annual Goals:</strong> Are they specific, measurable, achievable, relevant, and time-bound (SMART)?</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text"><strong>Accommodations:</strong> Will these genuinely help your child access the curriculum?</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text"><strong>Services:</strong> Type, frequency, duration, and location are all clearly specified</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text"><strong>Placement (LRE):</strong> Is this the least restrictive environment where your child can succeed?</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text"><strong>Transition Planning:</strong> (If age 14+) Are post-secondary goals and transition services included?</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text"><strong>Progress Reporting:</strong> How and how often will you receive updates?</div>
+        </div>
+    </div>
+
+    <!-- AFTER THE MEETING -->
+    <div class="section">
+        <h2 class="section-title">
+            <span class="section-number">4</span>
+            After the Meeting
+        </h2>
+
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text">Review the <strong>draft IEP document</strong> carefully before signing</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text">Compare the written IEP to what was discussed in the meeting</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text">If you need time to review, <strong>don't sign yet</strong> - you can take it home</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text">Keep a copy of the <strong>signed IEP</strong> in your records</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text">Send a <strong>thank you email</strong> to the team, summarizing key points discussed</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text">Share relevant parts of the IEP with your child (age-appropriate)</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text">Set reminders to <strong>check in on progress</strong> throughout the year</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text">Document any concerns or wins as they happen during the year</div>
+        </div>
+
+        <div class="tip-box">
+            <strong>📧 Follow-Up Email Template:</strong>
+            <p>"Thank you for meeting with me today. I appreciate the team's time and collaboration. To confirm my understanding: [list key decisions, services agreed upon, and next steps]. Please let me know if I've missed anything. I look forward to working together to support [child's name]."</p>
+        </div>
+    </div>
+
+    <!-- RED FLAGS -->
+    <div class="section">
+        <h2 class="section-title">
+            <span class="section-number">⚠️</span>
+            Red Flags - When to Push Back
+        </h2>
+
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text">The team pressures you to sign immediately without time to review</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text">Goals are vague or not measurable ("will improve reading skills")</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text">You're told "we don't do that here" or "that's not how we typically do things"</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text">Services are reduced without clear data showing progress</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text">The IEP seems predetermined - your input isn't genuinely considered</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text">Budget or staffing is mentioned as a reason services can't be provided</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="item-text">You're made to feel like a difficult or demanding parent for advocating</div>
+        </div>
+    </div>
+
+    <!-- NOTES SECTION -->
+    <div class="notes-section">
+        <h3>Meeting Notes & Action Items:</h3>
+        <div class="notes-lines">
+            <div class="notes-line"></div>
+            <div class="notes-line"></div>
+            <div class="notes-line"></div>
+            <div class="notes-line"></div>
+            <div class="notes-line"></div>
+            <div class="notes-line"></div>
+            <div class="notes-line"></div>
+            <div class="notes-line"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p class="book-title">IEPs & WTFs: A Parent's Survival Guide to Special Education</p>
+        <p>by Marjorie Stevens</p>
+        <p style="margin-top: 15px;">For more resources and support, visit our website or grab your copy of the book.</p>
+        <p style="font-size: 12px; margin-top: 10px; color: #94a3b8;">© 2026 Marjorie Stevens. All rights reserved.</p>
+    </div>
+</body>
+</html>
